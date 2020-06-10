@@ -1,0 +1,31 @@
+{% for data in my_list %}
+  <p>{{data}}</p>
+{% endfor %}
+
+<hr>
+<h1></h1>
+{% if data_a == '두번째 데이터' %}
+  <p>첫번째 데이터:{{data_a}}</p>
+{% elif data_b == '첫번째 데이터' %}
+  <p>두번째 데이터:{{data_b}}</p>
+{% endif %}
+
+<hr>
+{% if my_string|length <= 5 %}
+  <p>짧다</p>
+{% elif my_string|length >= 10  %}
+  <p>길다</p>
+{% else %}
+  <p>적당적당</p>
+{% endif %}
+
+<hr>
+{% for data in my_list %}
+  {% if data >= 90 %}
+    <p>A</p>
+  {% elif data >= 50 %}
+    <p>B</p>
+  {% else%}
+    <p>C</p>
+  {% endif %}
+{% endfor %}

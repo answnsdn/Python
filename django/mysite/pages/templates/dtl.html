@@ -1,0 +1,37 @@
+<h2>1. for문</h2>
+{% for food in my_list %}
+  <!-- forloop.counter를 사용하면 1부터 count가 된다. -->
+  <p>{{ forloop.counter }}. {{food}}</p>
+{% endfor %}
+
+{% for data in empty_list %}
+  <p>data</p>
+<!-- empty_list가 비어있는지 확인하는 과정 -->
+{% empty %} 
+  <p>비어있습니다.</p>
+{% endfor %}
+<hr>
+
+<h2>2. 조건문</h2>
+{% for food in my_list %}
+  {% if forloop.first %}
+    <P>{{forloop.last}}</P>
+    <P>{{forloop.first}}</P>
+    <p>간짜장에 고춧가루면 흰셔츠에 튀어도 개안치</p>
+  {% else %}
+    <p>{{ food }}</p>
+{% endif %}
+{% endfor %}
+<hr>
+<h2>3. filter 활용</h2>
+  <p>{{my_string|lower}}</p>
+  <p>{{my_string|upper}}</p>
+  <p>{{my_string|title}}</p>
+  <p>{{my_string|length}}</p>
+  <p>{{my_string|truncatewords:3}}</p>
+  <p>{{my_string|truncatechars:10}}</p>
+<hr>
+<h2>4. lorem ipsum</h2>
+  <p>{% lorem %}</p>
+  <p>{% lorem 3 w %}</p>
+

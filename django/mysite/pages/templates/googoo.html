@@ -1,0 +1,15 @@
+<h1>내가 입력한 숫자는 {{num1}}</h1>
+
+<h2>구구단을 외자 구구단의 외자</h1>
+<h2>{{result}}</h1>
+
+<!-- html 안에 코드 작성하기 : Django Template Language -->
+<h1>DTL</h1>
+{% for num in result %}
+  <p>{{num}}</p>
+{% endfor %}
+
+<!-- comment를 이용해 주석처럼 쓰기 -->
+{%comment%}
+  여기 안에서 쓴 내용은 표시 안됌 개꿀
+{%endcomment%}
