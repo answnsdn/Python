@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 우선순위</title>
+    <style>
+        .red{
+            color: red;
+        }
+        #blue{
+            color: blue;
+        }
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <p calss="red" id="blue">빨간색 글씨</p>
+    <p calss="red">빨간색 글씨</p>
+    <p calss="red green">나는 무슨색?</p>
+</body>
+</html>
