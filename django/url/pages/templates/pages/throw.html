@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+ 던진다.
+{% endblock %}
+{% block body %}
+<h1>던진다.</h1>
+<form action="{% url 'catch'%}" method="GET">
+  이름 : <input type="text" name ="name">
+  나이 : <input type="number" name ="age">
+  <input type="submit" value="제출">
+</form>
+{% endblock %}

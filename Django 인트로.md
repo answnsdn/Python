@@ -21,7 +21,7 @@
 
    bash창의 url을 실행하면 아래와 같은 페이지가 생성됨.
 
-![](C:\Users\student\Desktop\캡처.PNG)
+![](.\images\캡처.PNG)
 
 3. 프로젝트 생성 시 제공하는 파일
    - manage.py

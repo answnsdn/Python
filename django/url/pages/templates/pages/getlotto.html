@@ -1,0 +1,9 @@
+<h1>로또 번호</h1>
+<h2>갯수 : {{count}}</h2>
+<ul>
+{% for i in range(0,int(count)):%}
+    <li>
+    {{ lottolist.pop(i) }}
+  </li>
+{ %endfor% }
+</ul>
