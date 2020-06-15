@@ -2,7 +2,7 @@
 
 ### 프로젝트 생성
 
-- **Project Name** : url
+- **Project Name** : mysite
 - **App Name** : articles
 
 ### 페이지 생성
@@ -27,3 +27,4 @@
 2. **template 폴더 구조**
 
    
+

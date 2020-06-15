@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h1>소개 페이지</h1>
+  <hr>
+  <p>이름 : 문준우</p>
+  <p>나이 : 26</p>
+  <a href="{% url 'articles:index' %}">메인으로</a>
+{% endblock %}
