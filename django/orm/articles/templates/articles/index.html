@@ -5,4 +5,11 @@
   <a href="{% url 'articles:new' %}">NEW</a>
   <hr>
   <a href="{% url 'articles:introduce' %}">소개</a>
+  <hr>
+  {% for article in articles %}
+    <h3>{{article.pk}} 번째 글</h3>
+    <h4>제목 : {{article.title}}</h4>
+    <a href="{% url 'articles:detail' article.pk%}">[DETAIL]</a>
+    <hr>
+  {% endfor %}
 {% endblock %}

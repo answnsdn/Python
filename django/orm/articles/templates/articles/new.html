@@ -2,7 +2,9 @@
 {% block body %}
 <h1>글 작성 페이지</h1>
 <hr>
-<form action="{% url 'articles:create' %}">
+<form action="{% url 'articles:create' %}" method="POST">
+    <!-- POST방식을 사용할 때 요청 위조를 방지하는 토큰(django에서 제공)을 선언한다. -->
+    {% csrf_token %}
     <label for="title">제목 : </label>
     <input type="text" name="title" id="title">
     <label for="content">내용 : </label>
