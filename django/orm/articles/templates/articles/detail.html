@@ -4,10 +4,13 @@
   <hr>
   <h3>{{ article.pk }}번째 글</h3>
   <p>제목 : {{article.title}}</p>
-  <p>내용 : {{article.cotent}}</p>
+  <p>내용 : {{article.content}}</p>
   <p>생성 시간 : {{article.created_at}}</p>
   <p>수정 시간 : {{article.updated_at}}</p>
-  <a href="{% url 'articles:delete' article.pk %}">[삭제하기]</a>
+  <form action="{% url 'articles:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="[삭제하기]">
+  </form>
   <a href="{% url 'articles:index' %}">[뒤로가기]</a>
   <a href="{% url 'articles:edit' article.pk %}">[수정하기]</a>
 

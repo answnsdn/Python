@@ -55,8 +55,10 @@ def detail(request, article_pk):
 
 def delete(request, article_pk):
     article = Article.objects.get(pk=article_pk)
-    article.delete()
-    return redirect('articles:index')
+    if request.method == "POST":
+        article.delete()
+        return redirect('articles:index')
+    return redirect('articles:detail',article_pk)
 
 def edit(request, article_pk):
     article = Article.objects.get(pk=article_pk)
@@ -64,5 +66,14 @@ def edit(request, article_pk):
         'article':article,
     }
     return render(request,'articles/edit.html',context)
+
+def update(request, article_pk):
+    article = Article.objects.get(pk=article_pk)
+    title = request.POST.get('title')
+    content = request.POST.get('content')
+    # article.title = title
+    # article.content = content
+    article.save()
+    return redirect('articles:index')
 
 

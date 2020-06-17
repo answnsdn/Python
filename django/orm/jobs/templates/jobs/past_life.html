@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h1>전생 체험하기</h1>
+  <p>{{person.name}}님의 전생은 {{person.past_job}}입니다.</p>
+  <hr>
+  <a href="{% url 'jobs:detail' %}">체험하기</a>
+
+{% endblock %}
