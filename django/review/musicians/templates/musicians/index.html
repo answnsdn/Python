@@ -6,9 +6,15 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>메인 페이지</h1>
+  <h2>메인 페이지</h2>
+  <hr>
   {% for musician in musicians %}
-    <a href="{% url 'musicians:detail' musician.pk %}"><li>{{ musician }}</li></a>    
+    <ul>
+      <li>가수명 : {{ musician.name }}</li>
+      <li>나이 : {{ musician.age }}</li>
+    </ul>
+    <a href="{% url 'musicians:detail' musician.pk %}">[앨범보기]</a>
+    <hr>
   {% endfor %}
   <a href="{% url 'musicians:create' %}">생성</a>
 </body>

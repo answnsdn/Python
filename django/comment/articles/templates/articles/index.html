@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h2>메인 페이지</h2>
+  <hr>
+
+  <hr>
+  {% for article in articles %}
+    <p>{{article.title}}번째 글</p>  
+    <p>{{article.title}}</p>
+  {% endfor %}
+{% endblock %}

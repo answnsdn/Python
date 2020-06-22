@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +7,16 @@
   <title>Document</title>
 </head>
 <body>
-  <h2>상세 페이지</h2>
+  <h2>앨범 활동 내역</h2>
   <hr>
-  <h2>{{ musician }}</h2>
+  <img src="{% static 'images/chung.PNG' %}">
+  <h2>{{ musician.name }}</h2>
   <hr>
-  <p>{{ musician.name }}</p>
-  <p>{{ musician.age }}</p>
-  <a href="{% url 'musicians:update' musician.pk %}">수정하기</a>
+  {% for album in albums %}
+    <p>앨범명 : {{album.album}}</p>
+    <p>발매일자 : {{album.date}}</p>
+    <hr>
+  {% endfor %}
   <form action="{% url 'musicians:delete' musician.pk %}" method="post">
     {% csrf_token %}
     <input type="submit" value="삭제하기">
