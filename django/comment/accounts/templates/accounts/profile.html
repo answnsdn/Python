@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h2>{{ person.username }}</h2>
+  <p>유저가 작성한 게시글 모음</p>
+  <ul>
+    {% for article in person.article_set.all %}
+      <li>{{ article.title }}</li>
+      <li>{{ article.content }}</li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <p>유저가 작성한 댓글 모음</p>
+  <ul>
+    {% for comment in person.comment_set.all %}
+      <li>{{ comment.content }}</li>
+    {% empty %}
+      <p>댓글이 없습니다.</p>
+    {% endfor %}
+  </ul>
+  <hr>
+  <p>유저가 클릭한 좋아요 모음</p>
+  <ul>
+    {% for like in person.like_article.all %}
+      <li>{{ like.title }}</li>
+    {% empty %}
+      <p>좋아요가 없습니다.</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

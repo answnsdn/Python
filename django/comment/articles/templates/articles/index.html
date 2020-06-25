@@ -5,10 +5,22 @@
 <a href="{% url 'articles:create' %}">[CREATE]</a>
 <hr>
 {% for article in articles %}
- <p>{{ article.pk }}번째 글</p>
- <p>{{ article.title }}</p>
- <p>댓글 개수 : {{ article.comment_set.all|length }}</p>
- <a href="{% url 'articles:detail' article.pk %}">[DETAIL]</a>
- <hr>
+  <p>{{ article.pk }}번째 글</p>
+  <p>{{ article.title }}</p>
+  <p>댓글 개수 : {{ article.comment_set.all|length }}</p>
+  {% if user in article.like_users.all %}
+    <a href="{% url 'articles:like' article.pk %}"><i class="fas fa-heart"></i></a>
+  {% else %}
+    <a href="{% url 'articles:like' article.pk %}"><i class="far fa-heart text-danger"></i></a>
+  {% endif %}
+  <p>좋아요 개수 : {{ article.like_users.all|length }}</p>
+  <a href="{% url 'articles:detail' article.pk %}">[DETAIL]</a>
+  {% if user in article.recommend.all %}
+    <a href="{% url 'articles:recommend' article.pk %}">추천 취소</a>
+  {% else %}
+    <a href="{% url 'articles:recommend' article.pk %}">추천</a>
+  {% endif %}
+  <p>추천수 : {{ article.recommend.all|length }}</p>
+  <hr>
 {% endfor %}
 {% endblock %}
