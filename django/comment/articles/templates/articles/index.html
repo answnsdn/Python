@@ -23,4 +23,7 @@
   <p>추천수 : {{ article.recommend.all|length }}</p>
   <hr>
 {% endfor %}
+{% for num in articles.paginator.page_range %}
+  <a href="{% url 'articles:index' %}?page= {{num}} ">{{ num }}</a>
+{% endfor %}
 {% endblock %}

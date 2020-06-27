@@ -4,13 +4,14 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.views.decorators.http import require_POST
 from django.contrib.auth import update_session_auth_hash, get_user_model
 from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .models import User
 
 # Create your views here.
 def signup(request):
     if request.user.is_authenticated:
         return redirect('articles:index')
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
@@ -89,3 +90,11 @@ def profile(request, username):
     }
     return render(request, 'accounts/profile.html', context)
 
+def follow(request, user_pk):
+    person = get_object_or_404(User, pk=user_pk)
+    user = request.user
+    if user in person.followers.all():
+        person.followers.remove(user)
+    else:
+        person.followers.add(user)
+    return redirect('accounts:profile', person.username)

@@ -26,4 +26,11 @@
       <p>좋아요가 없습니다.</p>
     {% endfor %}
   </ul>
+  <p>팔로우</p>
+    {% if user in person.followers.all %}
+      <a href="{% url 'accounts:follow' person.pk %}">팔로우취소</a>
+    {% else %}
+      <a href="{% url 'accounts:follow' person.pk %}">팔로우</a>
+    {% endif %}
+  <p>팔로워 : {{ follower.followers.all|length }}명</p>
 {% endblock %}
